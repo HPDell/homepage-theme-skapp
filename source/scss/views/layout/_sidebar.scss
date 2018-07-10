@@ -229,3 +229,99 @@ $title-falg-w: 4px      !default;
         }
     }
 }
+
+.sidebar__block__sticky {
+    position: sticky;
+    display: block;
+    width: 100%;
+    top: 80px;
+
+    ol.toc {
+        counter-reset: header1counter;
+        list-style: none;
+        padding-left: 16px;
+
+        .toc-item {
+            word-wrap: normal;
+
+            a.toc-link {
+                text-decoration-line: none;
+                color: black;
+            }
+
+            :hover {
+                color: $main-color;
+            }
+        }
+
+        li.toc-level-1 {
+            counter-increment: header1counter;
+            &::before {
+                color: $main-color;
+                content: counter(header1counter)". ";
+                margin-right: 0.2em;
+            }
+
+            ol.toc-child {
+                counter-reset: header2counter;
+                list-style: none;
+                padding-left: 2em;
+
+                li.toc-level-2 {
+                    counter-increment: header2counter;
+
+                    &::before {
+                        color: $main-color;
+                        content: counter(header1counter)"."counter(header2counter)". ";
+                        margin-right: 0.2em;
+                    }
+
+                    ol.toc-child {
+                        counter-reset: header3counter;
+                        list-style: none;
+                        padding-left: 2.5em;
+
+                        li.toc-level-3 {
+                            counter-increment: header3counter;
+
+                            &::before {
+                                color: $main-color;
+                                content: counter(header1counter)"."counter(header2counter)"."counter(header3counter)". ";
+                                margin-right: 0.2em;
+                            }
+                        }
+
+                        .toc-level-4, .toc-level-5, .toc-level-6 {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .block__title {
+        position: relative;
+        color: $title-fc;
+        font-size: $main-fs + 2px;
+        padding-left: 20px - $title-falg-w;
+        margin: $margin auto $margin - 10px;
+        font-weight: 400;
+        height: 20px;
+        line-height: 20px;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: $title-falg-w;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: $main-color;
+            background: linear-gradient(to bottom, $main-color 35%, $main-color--hover 100%) left center no-repeat;
+            background-size: 100%;
+        }
+    }
+}
