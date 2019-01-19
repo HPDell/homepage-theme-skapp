@@ -26,6 +26,7 @@ $back-top-size: 50px !default;
     & > i {
         display: inline-block;
         line-height: $back-top-size;
+        color: #fff;
     }
 
     &--hidden {
