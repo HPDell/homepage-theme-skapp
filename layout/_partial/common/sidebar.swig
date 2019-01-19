@@ -44,9 +44,10 @@
             {% endfor %}
         </ul>
     </div> -->
-
-    <div class="sidebar__block__sticky">
-        <h3 class="block__title">{{ __('aside.toc') }}</h3>
-        {{ toc(page.content, {list_number: false}) }}
-    </div>
+    {% if page.menu %}
+        <div class="sidebar__block__sticky">
+            <h3 class="block__title">{{ __('aside.toc') }}</h3>
+            {{ toc(page.content, {list_number: false}) }}
+        </div>
+    {% endif %}
 </aside>

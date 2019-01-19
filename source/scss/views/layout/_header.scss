@@ -47,6 +47,11 @@ body {
                 & > a {
                     height: 40px;
                     line-height: 40px;
+
+                    &:hover {
+                        // color: darken($main-color, 20%);
+                        color: $secondary-color;
+                    }
                 }
             }
         }
@@ -85,7 +90,8 @@ body {
         }
 
         .page__nav .nav__item a:hover {
-            color: darken($main-color, 20%);
+            // color: darken($main-color, 20%);
+            color: $secondary-color;
         }
     }
 }
@@ -146,6 +152,11 @@ body {
             padding: 0 $pad;
             @include link($main-color);
             color: #fff;
+
+            &:hover {
+                // color: darken($main-color, 20%);
+                color: $secondary-color;
+            }
         }
     }
 }
